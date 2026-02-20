@@ -2,16 +2,24 @@ name: Docker Build
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Build Docker images
-      run: docker-compose -f docker-compose.prod.yml build
+      - name: Create dummy env file
+        run: |
+          echo "SECRET_KEY=dev" > .env.prod
+          echo "DATABASE_URL=sqlite:///" >> .env.prod
+          echo "POSTGRES_USER=postgres" > .env.prod.db
+          echo "POSTGRES_PASSWORD=postgres" >> .env.prod.db
+          echo "POSTGRES_DB=postgres" >> .env.prod.db
+
+      - name: Build containers
+        run: docker-compose -f docker-compose.prod.yml build
