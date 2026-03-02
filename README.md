@@ -3,7 +3,9 @@
 
 # Flask on Docker (Postgres + Gunicorn + Nginx)
 
-This project demonstrates how to containerize a Python Flask web application using Docker Compose. The applicaiton runs inside a multi-container environment that includes a PostgreSQL database, a Gunicorn application server, and an Nginx reverse proxy.  The stack is designed ot mirror a typical production web deployment arhcitecture where Flask handles application logic, Gunicorn serves the application, PostgreSQL stores data, and Nginx manages HTTP requests and static/media files. : contentReference[oaicite:1]{index=1}
+This project demonstrates how to containerize a Python Flask web application using Docker Compose. The applicaiton runs inside a multi-container environment that includes a PostgreSQL database, a Gunicorn application server, and an Nginx reverse proxy.  
+
+The stack is designed ot mirror a typical production web deployment arhcitecture where Flask handles application logic, Gunicorn serves the application, PostgreSQL stores data, and Nginx manages HTTP requests and static/media files. : contentReference[oaicite:1]{index=1}
 
 ## Demo
 ![Demo GIF](demo.gif)
